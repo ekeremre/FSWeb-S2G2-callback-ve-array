@@ -70,22 +70,19 @@ function Yillar(arr2,finaller2) {
 	4. Tüm kazanan ülkelerin isimlerini içeren `kazananlar` adında bir dizi(array) döndürecek(return)  */ 
 
 function Kazananlar(arr3,finaller3) {
-	const kazananlar = arr3.reduce(finaller3(sayi."Home Team goals",sayi"Away Team Goals") => {
+	const kazananlar = finaller3(arr3).map((arg => arg["Home Team Goals"] > arg["Away Team Goals"] ? arg["Home Team Name"] : arg["Away Team Name"] ))
+	return kazananlar
 
-		return Home Team goals > Away Team Goals ? Home Team Name : Away Team Name
 	}
+console.log(Kazananlar(fifaData,Finaller))
 
-	}	
-	
-}
 
 
 
 /*  Görev 5: 
 	Bir higher-order fonksiyonu olan YillaraGoreKazananlar isimli fonksiyona aşağıdakileri uygulayın:
 	1. fifaData dizisini(array) fonksiyonunun birinci parametresi olarak alacak
-	2. Görev 2'de yazdığınız Finaller fonksiyonunu, g
-	eriçağırım(callback) olarak fonksiyonun ikinci parametresi olarak alacak
+	2. Görev 2'de yazdığınız Finaller fonksiyonunu, geriçağırım(callback) olarak fonksiyonun ikinci parametresi olarak alacak
 	3. Görev 3'de yazdığınız Yillar fonksiyonunu, geriçağırım(callback) olarak fonksiyonun üçüncü parametresi olarak alacak
 	4. Görev 4'de yazdığınız Kazananlar fonksiyonunu, geriçağırım(callback) olarak fonksiyonun dördüncü parametresi olarak alacak
 	5. Her yıl için "{yıl} yılında, {ülke} dünya kupasını kazandı!" cümlesini(string) içeren bir diziyi(array) döndürecek
@@ -93,13 +90,17 @@ function Kazananlar(arr3,finaller3) {
 	💡 İPUCU: her cümlenin adım 4'te belirtilen cümleyle birebir aynı olması gerekmektedir.
 */
 
-function YillaraGoreKazananlar(/* kodlar buraya */) {
-	
-/* kodlar buraya */
-
+function YillaraGoreKazananlar(arr3,finaller3,yillar2,kazananlar2) {
+	 const array1 = yillar2(arr3,finaller3);
+	 const array2 = kazananlar2(arr3,finaller3);
+	 let stringler = []
+	 	for (let i = 0; i < array1.length; i++) {
+			stringler.push(`${array1[i]} yılında, ${array2[(i)]} dünya kupasını kazandı!`);
+			}
+	console.log(stringler)
 }
 
-
+console.log(YillaraGoreKazananlar(fifaData,Finaller,Yillar,Kazananlar))
 /*  Görev 6: 
 	Bir higher order fonksiyonu olan `OrtalamaGolSayisi`   fonksiyona aşağıdakileri uygulayın: 
 	1. Görev 2'de yazdığınız `Finaller` fonksiyonunu birinci parametre olarak alacak; 'fifaData' dizisini argüman olarak eklediğinizden emin olun
